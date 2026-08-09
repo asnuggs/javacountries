@@ -1,12 +1,15 @@
+//Ashley Snuggs Week 5 Countries List
+
 package countriesList;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class CountriesList {
 	
-	static Scanner scanner = new Scanner(System.in);
-	private ArrayList<String> countries = new ArrayList<>();
+	private final Scanner scanner = new Scanner(System.in);
+	private final ArrayList<String> countries = new ArrayList<>();
 	static int opt;
 	
 	public ArrayList<String> getList(){
@@ -27,17 +30,18 @@ public class CountriesList {
 	public int getMenuOption() {
 		System.out.println("Enter menu number: ");
 		int opt = scanner.nextInt();
+		scanner.nextLine();
 		return opt;
 	}
 	
 	public void checkForCountry() {
-		while (true) {
-			String input = scanner.nextLine();
-			if (countries.contains(input)) {
-			System.out.println("Country is already in list.");
-			} else {
-				addCountry(input);
-			}
+		System.out.println("Enter country name: ");
+		String input = scanner.nextLine();
+		if (countries.contains(input)) {
+			System.out.println("Country is already in list");
+		} else {
+			addCountry(input);
+			System.out.println("Country " + input + " has been added to the list");
 		}
 	}
 	
@@ -46,13 +50,12 @@ public class CountriesList {
 	}
 	
 	public void listCountries(ArrayList<String> countires) {
-		while (true) {
-			if (countries != null) {
-				for (String country : countries) {
-					System.out.println(country);
-				}
-			}else {
-				System.out.println("No countries in the list");
+		if (countries.isEmpty()) {
+			System.out.println("No countires in the list");
+		} else {
+			Collections.sort(countries);
+			for (String country : countires) {
+				System.out.println(country);
 			}
 		}
 	}
