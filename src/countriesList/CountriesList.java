@@ -6,26 +6,31 @@ import java.util.ArrayList;
 public class CountriesList {
 	
 	static Scanner scanner = new Scanner(System.in);
-	static ArrayList<String> countries = new ArrayList<>();
+	private ArrayList<String> countries = new ArrayList<>();
+	static int opt;
 	
-	public static void displayWelcomeMessage() {
+	public ArrayList<String> getList(){
+		return this.countries;
+	}
+	
+	public void displayWelcomeMessage() {
 		System.out.println("Country List Manager");
 	}
 	
-	public static void displayMenu() {
+	public void displayMenu() {
 		System.out.println("COMMAND MENU");
 		System.out.println("1 - List countries");
 		System.out.println("2 - Add a country");
 		System.out.println("3 - Exit");
 	}
 	
-	public static int getMenuOption() {
+	public int getMenuOption() {
 		System.out.println("Enter menu number: ");
 		int opt = scanner.nextInt();
 		return opt;
 	}
 	
-	public static void checkForCountry() {
+	public void checkForCountry() {
 		while (true) {
 			String input = scanner.nextLine();
 			if (countries.contains(input)) {
@@ -36,11 +41,11 @@ public class CountriesList {
 		}
 	}
 	
-	public static void addCountry(String input) {
+	public void addCountry(String input) {
 		countries.add(input);
 	}
 	
-	public static void listCountries() {
+	public void listCountries(ArrayList<String> countires) {
 		while (true) {
 			if (countries != null) {
 				for (String country : countries) {
@@ -51,5 +56,6 @@ public class CountriesList {
 			}
 		}
 	}
+	
 
 }
